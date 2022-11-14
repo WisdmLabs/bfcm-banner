@@ -1,0 +1,79 @@
+/* Css setting variables */
+html body {
+    /* colors */
+    --banner-background: #222020;
+    --banner-ribbon-end-color: #141313;
+    --banner-ribbon-fold-color: #525252;
+    --banner-text-color: #fff;
+    --banner-text-align: center;
+
+    --banner-width: 80%;
+
+    /* Font */
+    --banner-font-family: 'roberto';
+    --banner-font-size: 16px !important;
+    /* This ribbon is based on a 16px font side and a 24px vertical rhythm. I've used em's to position each element for scalability. If you want to use a different font size you may have to play with the position of the ribbon elements */
+    --banner-font-weight: 700;
+}
+
+/* banner container */
+.wdm-banner-conntainer {
+    /* padding: 10px 15px; */
+    background: var(--banner-background);
+    color: var(--banner-text-color);
+    /* min-width: 100%; */
+    position: relative;
+
+    width: var(--banner-width);
+        
+    padding: 1em 2em; /* Adjust to suit */
+    margin: 2em auto 3em; /* Based on 24px vertical rhythm. 48px bottom margin - normally 24 but the ribbon 'graphics' take up 24px themselves so we double it. */
+}
+
+.wdm-banner {
+    text-align: var(--banner-text-align);
+    font-family: var(--banner-font-family);
+    font-size: var(--banner-font-size);
+    font-weight: var(--banner-font-weight);
+}
+
+/* Ribbon styling */
+.wdm-banner-conntainer:before, .wdm-banner-conntainer:after {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -1em;
+    border: 1.5em solid var(--banner-ribbon-end-color);
+    z-index: -1;
+}
+
+.wdm-banner-conntainer:before {
+    left: -2em;
+    border-right-width: 1.5em;
+    border-left-color: transparent;
+}
+
+.wdm-banner-conntainer:after {
+    right: -2em;
+    border-left-width: 1.5em;
+    border-right-color: transparent;
+}
+
+.wdm-banner-conntainer .wdm-banner:before, .wdm-banner-conntainer .wdm-banner:after {
+    content: "";
+    position: absolute;
+    display: block;
+    border-style: solid;
+    border-color: var(--banner-ribbon-fold-color) transparent transparent transparent;
+    bottom: -0.9em;
+}
+
+.wdm-banner-conntainer .wdm-banner:before {
+    left: 0;
+    border-width: 1em 0 0 1em;
+}
+
+.wdm-banner-conntainer .wdm-banner:after {
+    right: 0;
+    border-width: 1em 1em 0 0;
+}
